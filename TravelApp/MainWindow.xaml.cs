@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelApp.Models;
+using TravelApp.ViewModels;
 using TravelApp.Views;
 
 namespace TravelApp
@@ -24,7 +26,7 @@ namespace TravelApp
         public MainWindow()
         {
             InitializeComponent();
-            Contentcos.Content = new CountryView();
+            DataContext = new MainWindowViewModel(new MainWindowModel());
         }
     }
 }

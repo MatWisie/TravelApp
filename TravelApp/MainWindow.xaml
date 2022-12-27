@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Rectangle Fill="#F2F2F2"/>
         <Label Content="TravelDex" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="25" Foreground="#6A6A6A" FontFamily="Sylfaen" Height="37" Width="119"/>
-        <Label Content="26.12.2022" Name="CurrentAppDate" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="25" Foreground="#6A6A6A" FontFamily="Sylfaen" Height="37" Margin="678,0,0,0" Width="122"/>
+        <Label Content="{Binding date}" Name="CurrentAppDate" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" Foreground="#6A6A6A" FontFamily="Sylfaen" Height="37" Margin="678,0,0,0" Width="122"/>
 
         <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray">
             <Grid>
@@ -28,6 +28,6 @@
                 <Button Grid.Column="2" Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" MaxWidth="50"/>
             </Grid>
         </Border>
-        <ContentControl Grid.Row="2" x:Name="Contentcos"/>
+        <ContentControl Grid.Row="2"/>
     </Grid>
 </Window>
