@@ -8,6 +8,6 @@ namespace TravelApp.Models
 {
     public class CountryNameModel
     {
-        public string Name { get; }
+        public string Name { get; set; }
     }
 }

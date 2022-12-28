@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:TravelApp.Views"
         xmlns:vms="clr-namespace:TravelApp.ViewModels"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:TravelApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding FillCombobox}"/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+    
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:CountryViewModel}">
@@ -30,7 +37,7 @@
                     <ColumnDefinition MaxWidth="60"/>
                     <ColumnDefinition MaxWidth="60" Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="CountiresComboBox" IsEditable="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" Margin="0 0 10 0"/>
+                <ComboBox Name="CountiresComboBox" IsEditable="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" Margin="0 0 10 0" ItemsSource="{Binding countries}" DisplayMemberPath="Name"/>
                 <Button Grid.Column="1" Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" MaxWidth="50"/>
                 <Button Grid.Column="2" Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" MaxWidth="50"/>
             </Grid>
