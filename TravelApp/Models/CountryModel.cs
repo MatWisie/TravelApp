@@ -8,14 +8,14 @@ namespace TravelApp.Models
 {
     public class CountryModel
     {
-        public string Name { get; }
-        public string NativeName { get; }
-        public string Capital { get; }
-        public string Region { get; }
-        public string Population { get; }
-        public string Area { get; }
-        public string NumericCode { get; }
-        public string Flag { get; }
+        public string Name { get; set; }
+        public string NativeName { get; set; }
+        public string Capital { get; set; }
+        public string Region { get; set; }
+        public int Population { get; set; }
+        public double Area { get; set; }
+        public string NumericCode { get; set; }
+        public string Flag { get; set; }
 
     }
 }

@@ -12,20 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TravelApp.Models;
 using TravelApp.ViewModels;
 
 namespace TravelApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy CountryView.xaml
+    /// Logika interakcji dla klasy Test.xaml
     /// </summary>
-    public partial class CountryView : UserControl
+    public partial class Test : UserControl
     {
-        public CountryView()
+        public Test()
         {
             InitializeComponent();
-            //DataContext = new CountryViewModel(new CountryControlModel());
+            DataContext = new TestViewModel();
         }
     }
 }

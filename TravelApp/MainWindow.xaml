@@ -14,11 +14,13 @@
             <b:InvokeCommandAction Command="{Binding FillCombobox}"/>
         </b:EventTrigger>
     </b:Interaction.Triggers>
-    
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:CountryViewModel}">
                 <views:CountryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:TestViewModel}">
+                <views:Test/>
             </DataTemplate>
         </Grid.Resources>
         <Grid.RowDefinitions>
@@ -37,8 +39,14 @@
                     <ColumnDefinition MaxWidth="60"/>
                     <ColumnDefinition MaxWidth="60" Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="CountiresComboBox" IsEditable="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" Margin="0 0 10 0" ItemsSource="{Binding countries}" DisplayMemberPath="Name"/>
-                <Button Grid.Column="1" Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" MaxWidth="50"/>
+                <ComboBox Name="CountiresComboBox" IsEditable="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" Margin="0 0 10 0" ItemsSource="{Binding countries}" DisplayMemberPath="Name" SelectedValue="{Binding comboboxCountry, UpdateSourceTrigger=PropertyChanged}">
+                    <b:Interaction.Triggers>
+                        <b:KeyTrigger Key="Return">
+                            <b:InvokeCommandAction Command="{Binding SelectCountry}"/>
+                        </b:KeyTrigger>
+                    </b:Interaction.Triggers>
+                </ComboBox>
+                <Button Grid.Column="1" Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" MaxWidth="50" Command="{Binding TestViewModel}"/>
                 <Button Grid.Column="2" Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" MaxWidth="50"/>
             </Grid>
         </Border>

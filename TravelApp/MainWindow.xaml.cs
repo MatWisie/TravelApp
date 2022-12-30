@@ -26,7 +26,7 @@ namespace TravelApp
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel(new MainWindowModel());
+            DataContext = new MainWindowViewModel(new MainWindowModel(), new Stores.NavigationStore());
         }
     }
 }

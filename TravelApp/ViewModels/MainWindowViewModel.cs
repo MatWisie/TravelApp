@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TravelApp.Commands;
 using TravelApp.Models;
+using TravelApp.Stores;
 using TravelApp.Views;
 
 namespace TravelApp.ViewModels
@@ -14,11 +15,20 @@ namespace TravelApp.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         private readonly MainWindowModel _mainWindowModel;
-        public MainWindowViewModel(MainWindowModel mainWindowModel)
+        private readonly NavigationStore _navigationStore;
+        public MainWindowViewModel(MainWindowModel mainWindowModel, NavigationStore navigationStore)
         {
             _mainWindowModel = mainWindowModel;
-            currentView = new CountryViewModel();
             FillCombobox = new FillComboboxCommand(this, _mainWindowModel);
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            TestViewModel = new TestViewModelCommand(_navigationStore, this);
+            SelectCountry = new SelectCountryCommand(_navigationStore, this, new CountryControlModel());
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(currentView));
         }
 
         public string date
@@ -42,15 +52,31 @@ namespace TravelApp.ViewModels
         {
             get 
             {
-                return _mainWindowModel.CurrentView; 
+                return _navigationStore.CurrentViewModel;
             }
             set 
-            { 
-                _mainWindowModel.CurrentView = value;
+            {
+                _navigationStore.CurrentViewModel = value;
                 OnPropertyChanged(nameof(currentView));
             }
         }
 
+        private CountryNameModel _comboboxCountry;
+        public CountryNameModel comboboxCountry
+        {
+            get 
+            {
+                return _comboboxCountry; 
+            }
+            set 
+            {
+                _comboboxCountry = value;
+                OnPropertyChanged(nameof(comboboxCountry)); 
+            }
+        }
+
         public ICommand FillCombobox { get; }
+        public ICommand SelectCountry { get; }
+        public ICommand TestViewModel { get; }
     }
 }

@@ -91,14 +91,23 @@
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\FillComboboxCommand.cs" />
+    <Compile Include="Commands\SelectCountryCommand.cs" />
+    <Compile Include="Commands\ShowCountryCommand.cs" />
+    <Compile Include="Commands\TestViewModelCommand.cs" />
+    <Compile Include="Models\CountryControlModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\CountryNameModel.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\CountryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\CountryView.xaml.cs">
       <DependentUpon>CountryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CountryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
