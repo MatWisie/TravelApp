@@ -15,7 +15,8 @@ namespace TravelApp.Models
         public int Population { get; set; }
         public double Area { get; set; }
         public string NumericCode { get; set; }
-        public string Flag { get; set; }
+        public FlagsModel Flags { get; set; } 
+        public List<CurrencyModel> Currencies { get; set; }
 
     }
 }

@@ -7,14 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-  <!--
-    <b:Interaction.Triggers>
-        <b:EventTrigger EventName="Loaded">
-            <b:InvokeCommandAction Command="{Binding ShowCountry}"/>
-        </b:EventTrigger>
-    </b:Interaction.Triggers>
-    -->
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,8 +14,8 @@
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="11*"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
@@ -31,7 +23,7 @@
                     <RowDefinition Height="12*"/>
                 </Grid.RowDefinitions>
                 <Image Source="{Binding flag}" Margin="10"/>
-                <Label Grid.Row="1" Content="Flag of USA" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                <Label Grid.Row="1" Content="{Binding Path=name}" ContentStringFormat="Flag of {0}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
             </Grid>
             <Rectangle Grid.Row="1" Margin="10,10,10,10" RadiusX="30" RadiusY="30">
                 <Rectangle.Fill>
@@ -54,9 +46,26 @@
                 <Rectangle Fill="#F2F2F2"/>
                 <Rectangle Grid.Column="1" Fill="#F2F2F2"/>
                 <StackPanel>
-                    <Label Content="{Binding name}" FontWeight="Bold" FontSize="20"/>
-                    <Label Content="{Binding nativeName}" FontSize="15"/>
-                    <Label Content="AlbAlb" FontSize="15"/>
+                    <Label Content="{Binding name}" FontWeight="Bold" FontSize="25"/>
+                    <Label Content="{Binding nativeName}" FontSize="18"/>
+                    <Separator/>
+                    <Label Content="{Binding capital}" ContentStringFormat="Capital: {0}" FontSize="18"/>
+                    <Label Content="{Binding region}" ContentStringFormat="Region: {0}" FontSize="18"/>
+                    <Label Content="{Binding population}" ContentStringFormat="Population: {0}" FontSize="18"/>
+                    <Label Content="{Binding area}" ContentStringFormat="Area: {0}" FontSize="18"/>
+                    <Label Content="{Binding numericCode}" ContentStringFormat="Numeric code: {0}" FontSize="18"/>
+                    <Label Content="Currencies:" FontSize="18"/>
+                    <ListView ItemsSource="{Binding currencies}" FontSize="15" Background="#F2F2F2">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Content="{Binding code}" ContentStringFormat="Code: {0}"/>
+                                    <Label Content="{Binding name}" ContentStringFormat="Name: {0}" />
+                                    <Label Content="{Binding symbol}" ContentStringFormat="Symbol: {0}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <Border Grid.Column="1" BorderThickness="1" BorderBrush="Gray">
                     <StackPanel >

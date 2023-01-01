@@ -41,7 +41,8 @@ namespace TravelApp.Commands
             _countryViewModel.region = tmp.Region;
             _countryViewModel.population = tmp.Population;
             _countryViewModel.area = tmp.Area;
-            _countryViewModel.flag = tmp.Flag;
+            _countryViewModel.flag = tmp.Flags.png;
+            _countryViewModel.currencies = tmp.Currencies;
 
             _navigationStore.CurrentViewModel = _countryViewModel;
             //new TestViewModel();

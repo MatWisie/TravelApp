@@ -97,6 +97,8 @@
     <Compile Include="Models\CountryControlModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\CountryNameModel.cs" />
+    <Compile Include="Models\CurrencyModel.cs" />
+    <Compile Include="Models\FlagsModel.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\CountryViewModel.cs" />

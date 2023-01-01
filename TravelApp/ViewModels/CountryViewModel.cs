@@ -110,12 +110,24 @@ namespace TravelApp.ViewModels
         {
             get 
             { 
-                return _countryControlModel.Flag;
+                return _countryControlModel.Flags;
             }
             set
             {
-                _countryControlModel.Flag = value;
+                _countryControlModel.Flags = value;
                 OnPropertyChanged(nameof(flag));
+            }
+        }
+        public List<CurrencyModel> currencies
+        {
+            get
+            {
+                return _countryControlModel.Currencies;
+            }
+            set
+            {
+                _countryControlModel.Currencies = value;
+                OnPropertyChanged(nameof(currencies));
             }
         }
 

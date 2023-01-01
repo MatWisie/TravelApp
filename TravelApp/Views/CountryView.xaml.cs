@@ -25,7 +25,6 @@ namespace TravelApp.Views
         public CountryView()
         {
             InitializeComponent();
-            //DataContext = new CountryViewModel(new CountryControlModel());
         }
     }
 }

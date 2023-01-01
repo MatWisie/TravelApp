@@ -17,12 +17,13 @@ namespace TravelApp.Models
         public int Population { get; set; }
         public double Area { get; set; }
         public string NumericCode { get; set; }
-        public string Flag { get; set; }
+        public string Flags { get; set; }
+        public List<CurrencyModel> Currencies { get; set; }
 
         public async Task<CountryModel> LoadCountry()
         {
             var client = new RestClient();
-            var request = new RestRequest("https://restcountries.com/v2/name/" + Name + "?fields=name,nativeName,capital,region,population,area,numericCode,flag");
+            var request = new RestRequest("https://restcountries.com/v2/name/" + Name + "?fields=name,nativeName,capital,region,population,area,numericCode,flags,currencies");
             var response = await client.GetAsync<List<CountryModel>>(request);
 
             return response[0];
