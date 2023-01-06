@@ -69,7 +69,7 @@
                 </StackPanel>
                 <Border Grid.Column="1" BorderThickness="1" BorderBrush="Gray">
                     <StackPanel >
-                        <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ShowCountry}"/>
+                        <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding SaveWantToTravel}"/>
                         <Button Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50"/>
                     </StackPanel>
                 </Border>

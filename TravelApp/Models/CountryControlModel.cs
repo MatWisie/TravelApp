@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace TravelApp.Models
 {
@@ -27,6 +30,36 @@ namespace TravelApp.Models
             var response = await client.GetAsync<List<CountryModel>>(request);
 
             return response[0];
+        }
+
+        public void Save(string filename) 
+        {
+
+            /*
+            XmlSerializer xml = new XmlSerializer(typeof(CountryControlModel));
+            xml.Serialize(stream, this);
+            */
+            if (File.Exists(filename)) 
+            {
+                List<CountryControlModel> _data = Load(filename);
+                _data.Add(this);
+                string json = JsonSerializer.Serialize(_data);
+                File.WriteAllText(filename, json);
+            }
+            else
+            {
+                List<CountryControlModel> _data = new List<CountryControlModel>();
+                _data.Add(this);
+                string json = JsonSerializer.Serialize(_data);
+                File.WriteAllText(filename, json);
+            }
+
+        }
+
+        public List<CountryControlModel> Load(string filename)
+        {
+            string jsonString = File.ReadAllText(filename);
+            return JsonSerializer.Deserialize<List<CountryControlModel>>(jsonString);
         }
     }
 }

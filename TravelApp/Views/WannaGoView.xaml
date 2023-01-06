@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="TravelApp.Views.WannaGoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding LoadWantToTravel}"/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
+    <Grid>
+        <GroupBox Margin="40" Header="I want to travel to: " FontSize="20">
+            <ListView ItemsSource="{Binding ListOfModels}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding Name}" ContentStringFormat="✈ {0}"/>
+                            <Expander Header="Show more">
+                                <WrapPanel>
+                                    <Label Content="{Binding NativeName}" ContentStringFormat="NativeName: {0}"/>
+                                    <Label Content="{Binding Capital}" ContentStringFormat="Capital: {0}"/>
+                                    <Label Content="{Binding Region}" ContentStringFormat="Region: {0}"/>
+                                </WrapPanel>
+                            </Expander>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </GroupBox>
+    </Grid>
+</UserControl>
