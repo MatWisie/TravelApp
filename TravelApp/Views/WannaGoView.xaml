@@ -16,11 +16,21 @@
 
     <Grid>
         <GroupBox Margin="40" Header="I want to travel to: " FontSize="20">
-            <ListView ItemsSource="{Binding ListOfModels}">
+            <ListView ItemsSource="{Binding ListOfModels}" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Label Content="{Binding Name}" ContentStringFormat="✈ {0}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                    <Label Content="{Binding Index}" ContentStringFormat="|{0}|"/>
+                                    <Label Content="{Binding Name}" ContentStringFormat="✈ {0}"/>
+                                </StackPanel>
+                                <Button Content="X" HorizontalAlignment="Right" Grid.Column="1" FontWeight="Bold" Foreground="Red" Cursor="Hand" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}, Path=DataContext.DeleteSelectedWannaGo}" CommandParameter="{Binding Index}"/>
+                            </Grid>
                             <Expander Header="Show more">
                                 <WrapPanel>
                                     <Label Content="{Binding NativeName}" ContentStringFormat="NativeName: {0}"/>

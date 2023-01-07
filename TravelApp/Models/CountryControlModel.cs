@@ -22,6 +22,7 @@ namespace TravelApp.Models
         public string NumericCode { get; set; }
         public string Flags { get; set; }
         public List<CurrencyModel> Currencies { get; set; }
+        public int? Index { get; set; }
 
         public async Task<CountryModel> LoadCountry()
         {
@@ -34,11 +35,6 @@ namespace TravelApp.Models
 
         public void Save(string filename) 
         {
-
-            /*
-            XmlSerializer xml = new XmlSerializer(typeof(CountryControlModel));
-            xml.Serialize(stream, this);
-            */
             if (File.Exists(filename)) 
             {
                 List<CountryControlModel> _data = Load(filename);
@@ -55,11 +51,26 @@ namespace TravelApp.Models
             }
 
         }
+        public void Save(string filename, List<CountryControlModel> _data) 
+        {
+            if (File.Exists(filename)) 
+            {
+                string json = JsonSerializer.Serialize(_data);
+                File.WriteAllText(filename, json);
+            }
+        }
 
         public List<CountryControlModel> Load(string filename)
         {
+            if (File.Exists(filename)) 
+            { 
             string jsonString = File.ReadAllText(filename);
             return JsonSerializer.Deserialize<List<CountryControlModel>>(jsonString);
+            }
+            else 
+            {
+                return null;
+            }
         }
     }
 }

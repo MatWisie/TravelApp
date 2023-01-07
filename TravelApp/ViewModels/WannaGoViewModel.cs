@@ -18,6 +18,7 @@ namespace TravelApp.ViewModels
         {
             _countryControlModel = countryControlModel;
             LoadWantToTravel = new LoadWantToTravelCommand(_countryControlModel, this);
+            DeleteSelectedWannaGo = new DeleteSelectedWannaGoCommand(_countryControlModel, this);
         }
 
         private ObservableCollection<CountryControlModel> _listOfModels = new ObservableCollection<CountryControlModel>();
@@ -33,5 +34,6 @@ namespace TravelApp.ViewModels
         }
 
         public ICommand LoadWantToTravel { get; }
+        public ICommand DeleteSelectedWannaGo { get; }
     }
 }

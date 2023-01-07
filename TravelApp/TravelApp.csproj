@@ -91,6 +91,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\ChangeViewWannaGoCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\DeleteSelectedWannaGoCommand.cs" />
     <Compile Include="Commands\FillComboboxCommand.cs" />
     <Compile Include="Commands\LoadWantToTravelCommand.cs" />
     <Compile Include="Commands\SaveWantToTravelCommand.cs" />
