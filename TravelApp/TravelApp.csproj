@@ -91,10 +91,10 @@
     </ApplicationDefinition>
     <Compile Include="Commands\ChangeViewWannaGoCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\DeleteSelectedWannaGoCommand.cs" />
+    <Compile Include="Commands\DeleteSelectedCountryCommand.cs" />
     <Compile Include="Commands\FillComboboxCommand.cs" />
-    <Compile Include="Commands\LoadWantToTravelCommand.cs" />
-    <Compile Include="Commands\SaveWantToTravelCommand.cs" />
+    <Compile Include="Commands\LoadCountryCommand.cs" />
+    <Compile Include="Commands\SaveCountrylCommand.cs" />
     <Compile Include="Commands\SelectCountryCommand.cs" />
     <Compile Include="Commands\ShowCountryCommand.cs" />
     <Compile Include="Commands\TestViewModelCommand.cs" />

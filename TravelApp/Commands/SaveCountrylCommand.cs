@@ -7,11 +7,11 @@ using TravelApp.Models;
 
 namespace TravelApp.Commands
 {
-    public class SaveWantToTravelCommand : CommandBase
+    public class SaveCountrylCommand : CommandBase
     {
         private readonly CountryControlModel _countryControlModel;
         private string _fileName;
-        public SaveWantToTravelCommand(CountryControlModel countryControlModel, string fileName)
+        public SaveCountrylCommand(CountryControlModel countryControlModel, string fileName)
         {
             _countryControlModel = countryControlModel;
             _fileName = fileName;

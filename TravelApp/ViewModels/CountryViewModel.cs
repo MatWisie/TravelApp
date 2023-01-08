@@ -18,7 +18,7 @@ namespace TravelApp.ViewModels
         {
             _countryControlModel = countryControlModel;
             ShowCountry = new ShowCountryCommand(this, _countryControlModel);
-            SaveWantToTravel = new SaveWantToTravelCommand(_countryControlModel, "WannaGo.json");
+            SaveWantToTravel = new SaveCountrylCommand(_countryControlModel, "WannaGo.json");
         }
 
         public string name

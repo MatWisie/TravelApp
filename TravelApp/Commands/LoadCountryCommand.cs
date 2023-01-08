@@ -10,12 +10,12 @@ using TravelApp.ViewModels;
 
 namespace TravelApp.Commands
 {
-    public class LoadWantToTravelCommand : CommandBase
+    public class LoadCountryCommand : CommandBase
     {
         private readonly CountryControlModel _countryControlModel;
         private readonly IListOfModels _viewModel;
         private string _fileName;
-        public LoadWantToTravelCommand(CountryControlModel countryControlModel, IListOfModels viewModel, string fileName)
+        public LoadCountryCommand(CountryControlModel countryControlModel, IListOfModels viewModel, string fileName)
         {
             _countryControlModel = countryControlModel;
             _viewModel = viewModel;

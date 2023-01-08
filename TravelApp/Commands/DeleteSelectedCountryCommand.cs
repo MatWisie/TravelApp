@@ -9,12 +9,12 @@ using TravelApp.ViewModels;
 
 namespace TravelApp.Commands
 {
-    public class DeleteSelectedWannaGoCommand : CommandBase
+    public class DeleteSelectedCountryCommand : CommandBase
     {
         private readonly IListOfModels _viewModel;
         private readonly CountryControlModel _countryControlModel;
         private string _fileName;
-        public DeleteSelectedWannaGoCommand(CountryControlModel countryControlModel,IListOfModels viewModel, string fileName)
+        public DeleteSelectedCountryCommand(CountryControlModel countryControlModel,IListOfModels viewModel, string fileName)
         {
             _viewModel = viewModel;
             _countryControlModel = countryControlModel;

@@ -18,8 +18,8 @@ namespace TravelApp.ViewModels
         public WannaGoViewModel(CountryControlModel countryControlModel)
         {
             _countryControlModel = countryControlModel;
-            LoadWantToTravel = new LoadWantToTravelCommand(_countryControlModel, this, "WannaGo.json");
-            DeleteSelectedWannaGo = new DeleteSelectedWannaGoCommand(_countryControlModel, this, "WannaGo.json");
+            LoadWantToTravel = new LoadCountryCommand(_countryControlModel, this, "WannaGo.json");
+            DeleteSelectedWannaGo = new DeleteSelectedCountryCommand(_countryControlModel, this, "WannaGo.json");
         }
 
         private ObservableCollection<CountryControlModel> _listOfModels = new ObservableCollection<CountryControlModel>();
