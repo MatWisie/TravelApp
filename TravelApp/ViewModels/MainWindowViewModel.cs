@@ -24,6 +24,7 @@ namespace TravelApp.ViewModels
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
             SelectCountry = new SelectCountryCommand(_navigationStore, this, new CountryControlModel());
             ChangeViewWannaGo = new ChangeViewWannaGoCommand(_navigationStore);
+            ChangeViewWasThere = new ChangeViewWasThereCommand(_navigationStore);
         }
 
         private void OnCurrentViewModelChanged()
@@ -78,5 +79,6 @@ namespace TravelApp.ViewModels
         public ICommand FillCombobox { get; }
         public ICommand SelectCountry { get; }
         public ICommand ChangeViewWannaGo { get; }
+        public ICommand ChangeViewWasThere { get; }
     }
 }

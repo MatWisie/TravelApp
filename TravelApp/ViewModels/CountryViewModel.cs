@@ -19,6 +19,7 @@ namespace TravelApp.ViewModels
             _countryControlModel = countryControlModel;
             ShowCountry = new ShowCountryCommand(this, _countryControlModel);
             SaveWantToTravel = new SaveCountrylCommand(_countryControlModel, "WannaGo.json");
+            SaveWasThere = new SaveCountrylCommand(_countryControlModel, "WasThere.json");
         }
 
         public string name
@@ -132,7 +133,8 @@ namespace TravelApp.ViewModels
             }
         }
 
-        public ICommand ShowCountry { get; set; }
-        public ICommand SaveWantToTravel { get; set; }
+        public ICommand ShowCountry { get; }
+        public ICommand SaveWantToTravel { get; }
+        public ICommand SaveWasThere { get; }
     }
 }

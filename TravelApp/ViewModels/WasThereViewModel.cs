@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TravelApp.Commands;
 using TravelApp.Interfaces;
 using TravelApp.Models;
 
@@ -17,6 +18,8 @@ namespace TravelApp.ViewModels
         public WasThereViewModel(CountryControlModel countryControlModel)
         {
             _countryControlModel = countryControlModel;
+            LoadWasThere = new LoadCountryCommand(_countryControlModel, this, "WasThere.json");
+            DeleteSelectedWasThere = new DeleteSelectedCountryCommand(_countryControlModel, this, "WasThere.json");
         }
         private ObservableCollection<CountryControlModel> _listOfModels = new ObservableCollection<CountryControlModel>();
 
@@ -31,5 +34,6 @@ namespace TravelApp.ViewModels
         }
 
         public ICommand LoadWasThere { get; }
+        public ICommand DeleteSelectedWasThere { get; }
     }
 }
