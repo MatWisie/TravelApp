@@ -9,14 +9,16 @@ namespace TravelApp.Commands
 {
     public class SaveWantToTravelCommand : CommandBase
     {
-        CountryControlModel _countryControlModel;
-        public SaveWantToTravelCommand(CountryControlModel countryControlModel)
+        private readonly CountryControlModel _countryControlModel;
+        private string _fileName;
+        public SaveWantToTravelCommand(CountryControlModel countryControlModel, string fileName)
         {
             _countryControlModel = countryControlModel;
+            _fileName = fileName;
         }
         public override void Execute(object parameter)
         {
-            _countryControlModel.Save("WannaGo.json");
+            _countryControlModel.Save(_fileName);
         }
     }
 }

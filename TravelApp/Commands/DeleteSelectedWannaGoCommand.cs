@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelApp.Interfaces;
 using TravelApp.Models;
 using TravelApp.ViewModels;
 
@@ -10,12 +11,14 @@ namespace TravelApp.Commands
 {
     public class DeleteSelectedWannaGoCommand : CommandBase
     {
-        private readonly WannaGoViewModel _viewModel;
+        private readonly IListOfModels _viewModel;
         private readonly CountryControlModel _countryControlModel;
-        public DeleteSelectedWannaGoCommand(CountryControlModel countryControlModel,WannaGoViewModel viewModel)
+        private string _fileName;
+        public DeleteSelectedWannaGoCommand(CountryControlModel countryControlModel,IListOfModels viewModel, string fileName)
         {
             _viewModel = viewModel;
             _countryControlModel = countryControlModel;
+            _fileName = fileName;
         }
         public override void Execute(object parameter)
         {
@@ -25,7 +28,7 @@ namespace TravelApp.Commands
             {
                 tmpList.Add(item);
             }
-            _countryControlModel.Save("WannaGo.json", tmpList);
+            _countryControlModel.Save(_fileName, tmpList);
         }
     }
 }

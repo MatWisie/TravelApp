@@ -98,6 +98,7 @@
     <Compile Include="Commands\SelectCountryCommand.cs" />
     <Compile Include="Commands\ShowCountryCommand.cs" />
     <Compile Include="Commands\TestViewModelCommand.cs" />
+    <Compile Include="Interfaces\IListOfModels.cs" />
     <Compile Include="Models\CountryControlModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\CountryNameModel.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WannaGoViewModel.cs" />
+    <Compile Include="ViewModels\WasThereViewModel.cs" />
     <Compile Include="Views\CountryView.xaml.cs">
       <DependentUpon>CountryView.xaml</DependentUpon>
     </Compile>
@@ -118,6 +120,9 @@
     </Compile>
     <Compile Include="Views\WannaGoView.xaml.cs">
       <DependentUpon>WannaGoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WasThereView.xaml.cs">
+      <DependentUpon>WasThereView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WannaGoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WasThereView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
