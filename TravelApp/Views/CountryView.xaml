@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:emums="clr-namespace:TravelApp.Enums"
              xmlns:local="clr-namespace:TravelApp.Views" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -38,7 +39,6 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="120"/>
@@ -69,11 +69,27 @@
                 </StackPanel>
                 <Border Grid.Column="1" BorderThickness="1" BorderBrush="Gray">
                     <StackPanel >
-                        <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding SaveWantToTravel}"/>
-                        <Button Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding SaveWasThere}"/>
+                        <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WannaGo}"/>
+                        <Button Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WasThere}"/>
                     </StackPanel>
                 </Border>
             </Grid>
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray">
+                <Grid IsEnabled="{Binding dateGridState}">
+                    <Rectangle Fill="#E6E6E6"/>
+                    <Label Content="{Binding modeString}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" FontSize="17" Foreground="Gray"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 15 0 0">
+                        <Viewbox Width="130">
+                            <DatePicker SelectedDate="{Binding fromDate, Mode=TwoWay}"/>
+                        </Viewbox>
+                        <Label Content="-" FontSize="35"/>
+                        <Viewbox Width="130">
+                            <DatePicker SelectedDate="{Binding toDate, Mode=TwoWay}"/>
+                        </Viewbox>
+                    </StackPanel>
+                    <Button Background="Green" Style="{StaticResource RoundedButton}" Margin="5" Width="35" Height="35" MaxWidth="40" MaxHeight="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding SaveCountry}"/>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

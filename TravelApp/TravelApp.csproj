@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ChangeModeCommand.cs" />
     <Compile Include="Commands\ChangeViewWannaGoCommand.cs" />
     <Compile Include="Commands\ChangeViewWasThereCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Commands\SaveCountrylCommand.cs" />
     <Compile Include="Commands\SelectCountryCommand.cs" />
     <Compile Include="Commands\ShowCountryCommand.cs" />
+    <Compile Include="Enums\AddModeEnum.cs" />
     <Compile Include="Interfaces\IListOfModels.cs" />
     <Compile Include="Models\CountryControlModel.cs" />
     <Compile Include="Models\CountryModel.cs" />

@@ -24,6 +24,9 @@ namespace TravelApp.Models
         public List<CurrencyModel> Currencies { get; set; }
         public int? Index { get; set; }
 
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
+
         public async Task<CountryModel> LoadCountry()
         {
             var client = new RestClient();

@@ -28,6 +28,9 @@
                                 <StackPanel Orientation="Horizontal" Grid.Column="0">
                                     <Label Content="{Binding Index}" ContentStringFormat="|{0}|"/>
                                     <Label Content="{Binding Name}" ContentStringFormat="✈ {0}"/>
+                                    <Label Content="{Binding FromDate}" ContentStringFormat="📅 dd/MM/yyyy" Margin="60 0 0 0"/>
+                                    <Label Content="-"/>
+                                    <Label Content="{Binding ToDate}" ContentStringFormat="dd/MM/yyyy"/>
                                 </StackPanel>
                                 <Button Content="X" HorizontalAlignment="Right" Grid.Column="1" FontWeight="Bold" Foreground="Red" Cursor="Hand" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}, Path=DataContext.DeleteSelectedWannaGo}" CommandParameter="{Binding Index}"/>
                             </Grid>

@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using TravelApp.Commands;
+using TravelApp.Enums;
 using TravelApp.Models;
 
 namespace TravelApp.ViewModels
@@ -20,6 +21,7 @@ namespace TravelApp.ViewModels
             ShowCountry = new ShowCountryCommand(this, _countryControlModel);
             SaveWantToTravel = new SaveCountrylCommand(_countryControlModel, "WannaGo.json");
             SaveWasThere = new SaveCountrylCommand(_countryControlModel, "WasThere.json");
+            ChangeMode = new ChangeModeCommand(this);
         }
 
         public string name
@@ -132,9 +134,96 @@ namespace TravelApp.ViewModels
                 OnPropertyChanged(nameof(currencies));
             }
         }
+        private bool _dateGridState = false;
+        public bool dateGridState
+        {
+            get
+            {
+                return _dateGridState;
+            }
+            set
+            {
+                _dateGridState = value;
+                OnPropertyChanged(nameof(dateGridState));
+            }
+        }
+
+        private AddModeEnum _addMode;
+        public AddModeEnum addMode
+        {
+            get
+            {
+                return _addMode;
+            }
+            set
+            {
+                _addMode = value;
+                if(value == AddModeEnum.WannaGo) 
+                {
+                    modeString = "Want to go";
+                }
+                else if(value == AddModeEnum.WasThere) 
+                {
+                    modeString = "Was there";
+                }
+                OnPropertyChanged(nameof(addMode));
+            }
+        }
+
+        public DateTime? fromDate 
+        {
+            get
+            {
+                return _countryControlModel.FromDate;
+            }
+            set
+            {
+                _countryControlModel.FromDate = value;
+                OnPropertyChanged(nameof(fromDate));
+            }
+        }
+        public DateTime? toDate
+        {
+            get
+            {
+                return _countryControlModel.ToDate;
+            }
+            set
+            {
+                _countryControlModel.ToDate = value;
+                OnPropertyChanged(nameof(toDate));
+            }
+        }
+        private string _modeString;
+        public string modeString 
+        {
+            get 
+            { 
+                return _modeString; 
+            }
+            set 
+            { 
+                _modeString = value; 
+                OnPropertyChanged(nameof(modeString)); 
+            }
+        }
 
         public ICommand ShowCountry { get; }
         public ICommand SaveWantToTravel { get; }
         public ICommand SaveWasThere { get; }
+        public ICommand ChangeMode { get; }
+        private ICommand _SaveCountry;
+        public ICommand SaveCountry
+        {
+            get
+            {
+                return _SaveCountry;
+            }
+            set
+            {
+                _SaveCountry = value;
+                OnPropertyChanged(nameof(SaveCountry));
+            }
+        }
     }
 }

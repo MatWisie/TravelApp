@@ -40,9 +40,11 @@ namespace TravelApp.Commands
             _countryViewModel.capital = tmp.Capital;
             _countryViewModel.region = tmp.Region;
             _countryViewModel.population = tmp.Population;
+            _countryViewModel.numericCode = tmp.NumericCode;
             _countryViewModel.area = tmp.Area;
             _countryViewModel.flag = tmp.Flags.png;
             _countryViewModel.currencies = tmp.Currencies;
+            _countryViewModel.dateGridState = false;
 
             _navigationStore.CurrentViewModel = _countryViewModel;
             //new TestViewModel();
