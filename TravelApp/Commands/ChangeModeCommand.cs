@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelApp.Enums;
+﻿using TravelApp.Enums;
 using TravelApp.ViewModels;
 
 namespace TravelApp.Commands
 {
     public class ChangeModeCommand : CommandBase
     {
-        private CountryViewModel _countryViewModel;
+        private readonly CountryViewModel _countryViewModel;
         public ChangeModeCommand(CountryViewModel countryViewModel)
         {
             _countryViewModel = countryViewModel;

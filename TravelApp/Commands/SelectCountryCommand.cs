@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Threading;
 using TravelApp.Models;
 using TravelApp.Stores;
 using TravelApp.ViewModels;
@@ -28,26 +22,32 @@ namespace TravelApp.Commands
         }
         public override async void Execute(object parameter)
         {
-            //_countryViewModel = new CountryViewModel(_countryControlModel);
-            currentApp.searchedCountry = _mainWindowViewModel.comboboxCountry.Name;
-
-            CountryModel tmp;
-            _countryControlModel.Name = currentApp.searchedCountry;
-            tmp = await _countryControlModel.LoadCountry();
-
-            _countryViewModel.name = tmp.Name;
-            _countryViewModel.nativeName = tmp.NativeName;
-            _countryViewModel.capital = tmp.Capital;
-            _countryViewModel.region = tmp.Region;
-            _countryViewModel.population = tmp.Population;
-            _countryViewModel.numericCode = tmp.NumericCode;
-            _countryViewModel.area = tmp.Area;
-            _countryViewModel.flag = tmp.Flags.png;
-            _countryViewModel.currencies = tmp.Currencies;
-            _countryViewModel.dateGridState = false;
-
-            _navigationStore.CurrentViewModel = _countryViewModel;
-            //new TestViewModel();
+            try
+            {
+                currentApp.searchedCountry = _mainWindowViewModel.comboboxCountry.Name;
+                CountryModel tmp;
+                _countryControlModel.Name = currentApp.searchedCountry;
+                tmp = await _countryControlModel.LoadCountry();
+                _countryViewModel.name = tmp.Name;
+                _countryViewModel.nativeName = tmp.NativeName;
+                _countryViewModel.capital = tmp.Capital;
+                _countryViewModel.region = tmp.Region;
+                _countryViewModel.population = tmp.Population;
+                _countryViewModel.numericCode = tmp.NumericCode;
+                _countryViewModel.area = tmp.Area;
+                _countryViewModel.flag = tmp.Flags.png;
+                _countryViewModel.currencies = tmp.Currencies;
+                _countryViewModel.dateGridState = false;
+                _navigationStore.CurrentViewModel = _countryViewModel;
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Such a country does not exist or is not in our database");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ namespace TravelApp.Commands
             for(int i = 0; i < tmpList.Count; i++) 
             {
                 _viewModel.ListOfModels.Add(tmpList[i]);
-                _viewModel.ListOfModels[i].Index = i+1;
+                    _viewModel.ListOfModels[i] += i+1;
             }
         }
     }

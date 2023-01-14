@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using TravelApp.Models;
 using TravelApp.ViewModels;
 
@@ -32,7 +26,6 @@ namespace TravelApp.Commands
             CountryModel tmp;
             _countryControlModel.Name = currentApp.searchedCountry;
             tmp = await _countryControlModel.LoadCountry();
-            
             _countryViewModel.name = tmp.Name; 
             _countryViewModel.nativeName = tmp.NativeName;
             _countryViewModel.capital = tmp.Capital;

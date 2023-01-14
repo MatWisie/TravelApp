@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace TravelApp.Commands
@@ -18,7 +14,7 @@ namespace TravelApp.Commands
 
         public abstract void Execute(object parameter);
 
-        protected void OnCanExecuteChanged() 
+        protected void OnCanExecuteChanged()
         {
             CanExecuteChanged?.Invoke(this, new EventArgs());
         }

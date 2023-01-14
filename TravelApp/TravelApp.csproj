@@ -96,7 +96,7 @@
     <Compile Include="Commands\DeleteSelectedCountryCommand.cs" />
     <Compile Include="Commands\FillComboboxCommand.cs" />
     <Compile Include="Commands\LoadCountryCommand.cs" />
-    <Compile Include="Commands\SaveCountrylCommand.cs" />
+    <Compile Include="Commands\SaveCountryCommand.cs" />
     <Compile Include="Commands\SelectCountryCommand.cs" />
     <Compile Include="Commands\ShowCountryCommand.cs" />
     <Compile Include="Enums\AddModeEnum.cs" />

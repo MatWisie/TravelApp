@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
-using System.Windows.Threading;
 using TravelApp.Commands;
 using TravelApp.Enums;
 using TravelApp.Models;
@@ -19,8 +14,8 @@ namespace TravelApp.ViewModels
         {
             _countryControlModel = countryControlModel;
             ShowCountry = new ShowCountryCommand(this, _countryControlModel);
-            SaveWantToTravel = new SaveCountrylCommand(_countryControlModel, "WannaGo.json");
-            SaveWasThere = new SaveCountrylCommand(_countryControlModel, "WasThere.json");
+            SaveWantToTravel = new SaveCountryCommand(_countryControlModel, "WannaGo.json");
+            SaveWasThere = new SaveCountryCommand(_countryControlModel, "WasThere.json");
             ChangeMode = new ChangeModeCommand(this);
         }
 

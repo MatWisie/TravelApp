@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelApp.Models;
+﻿using TravelApp.Models;
 
 namespace TravelApp.Commands
 {
-    public class SaveCountrylCommand : CommandBase
+    public class SaveCountryCommand : CommandBase
     {
         private readonly CountryControlModel _countryControlModel;
         private string _fileName;
-        public SaveCountrylCommand(CountryControlModel countryControlModel, string fileName)
+        public SaveCountryCommand(CountryControlModel countryControlModel, string fileName)
         {
             _countryControlModel = countryControlModel;
             _fileName = fileName;

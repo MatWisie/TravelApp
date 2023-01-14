@@ -1,14 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelApp.Models
+﻿namespace TravelApp.Models
 {
     public class FlagsModel
     {
-        public string svg { get; set; }
-        public string png { get; set; }
+        private string _svg;
+        public string svg 
+        {
+            get
+            {
+                return _svg;
+            }
+            set
+            {
+                _svg = value;
+            }
+        }
+        private string _png;
+        public string png 
+        {
+            get
+            {
+                return _png;
+            }
+            set
+            {
+                _png = value;
+            }
+        }
     }
 }

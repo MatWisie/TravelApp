@@ -1,24 +1,37 @@
 ﻿using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TravelApp.ViewModels;
-using TravelApp.Views;
 
 namespace TravelApp.Models
 {
     public class MainWindowModel
     {
-        public string Date { get; }
-        public ObservableCollection<CountryNameModel> Countries { get; set; }
-        public ViewModelBase CurrentView { get; set; }
+        private readonly string _Date;
+        public string Date 
+        {
+            get 
+            { 
+                return _Date; 
+            } 
+        }
+        private ObservableCollection<CountryNameModel> _Countries;
+        public ObservableCollection<CountryNameModel> Countries 
+        {
+            get
+            {
+                return _Countries;
+            }
+            set
+            {
+                _Countries = value;
+            }
+        }
 
         public MainWindowModel()
         {
-            Date = DateTime.Now.ToString("dd.MM.yyyy");
+            _Date = DateTime.Now.ToString("dd.MM.yyyy");
         }
 
         public async Task<ObservableCollection<CountryNameModel>> LoadCountries()
@@ -26,8 +39,6 @@ namespace TravelApp.Models
             var client = new RestClient();
             var request = new RestRequest("https://restcountries.com/v2/all?fields=name");
             var response = await client.GetAsync<ObservableCollection<CountryNameModel>>(request);
-
-
             return response;
         }
     }

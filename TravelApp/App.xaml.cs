@@ -14,7 +14,18 @@ namespace TravelApp
     /// </summary>
     public partial class App : Application
     {
-        public string searchedCountry { get; set; }
+        private string _searchedCountry;
+        public string searchedCountry 
+        {
+            get
+            {
+                return _searchedCountry;
+            }
+            set
+            {
+                _searchedCountry = value;
+            }
+        }
         private readonly NavigationStore _navigationStore;
 
         public App()

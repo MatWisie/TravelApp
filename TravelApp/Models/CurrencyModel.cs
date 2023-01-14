@@ -1,15 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelApp.Models
+﻿namespace TravelApp.Models
 {
     public class CurrencyModel
     {
-        public string code { get; set; }
-        public string name { get; set; }
-        public string symbol { get; set; }
+        private string _code;
+        public string code 
+        {
+            get 
+            { 
+                return _code; 
+            }
+            set
+            {
+                _code = value;
+            }
+        }
+        private string _name;
+        public string name 
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+        private string _symbol;
+        public string symbol 
+        {
+            get
+            {
+                return _symbol;
+            }
+            set
+            {
+                _symbol = value;
+            }
+        }
     }
 }
