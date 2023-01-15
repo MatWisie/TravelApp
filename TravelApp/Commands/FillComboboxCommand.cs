@@ -3,7 +3,7 @@ using TravelApp.ViewModels;
 
 namespace TravelApp.Commands
 {
-    internal class FillComboboxCommand : CommandBase
+    public class FillComboboxCommand : CommandBase
     {
         private readonly MainWindowModel _mainWindowModel;
         private readonly MainWindowViewModel _mainWindowViewModel;

@@ -154,6 +154,18 @@ namespace TravelApp.Models
                 _ToDate = value;
             }
         }
+        private string _Note;
+        public string Note
+        {
+            get
+            {
+                return _Note;
+            }
+            set
+            {
+                _Note = value;
+            }
+        }
 
 
         public static CountryControlModel operator +(CountryControlModel countryControlModel, int integer)
