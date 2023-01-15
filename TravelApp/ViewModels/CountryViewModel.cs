@@ -129,6 +129,13 @@ namespace TravelApp.ViewModels
                 OnPropertyChanged(nameof(currencies));
             }
         }
+
+        public List<LanguageModel> languages
+        {
+            get { return _countryControlModel.Languages; }
+            set { _countryControlModel.Languages = value; }
+        }
+
         private bool _dateGridState = false;
         public bool dateGridState
         {

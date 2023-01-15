@@ -118,6 +118,15 @@ namespace TravelApp.Models
                 _Currencies = value;
             }
         }
+
+        private List<LanguageModel> _Languages;
+
+        public List<LanguageModel> Languages
+        {
+            get { return _Languages; }
+            set { _Languages = value; }
+        }
+
         private int? _Index;
         public int? Index 
         {
@@ -176,7 +185,7 @@ namespace TravelApp.Models
         public async Task<CountryModel> LoadCountry()
         {
             var client = new RestClient();
-            var request = new RestRequest("https://restcountries.com/v2/name/" + Name + "?fields=name,nativeName,capital,region,population,area,numericCode,flags,currencies");
+            var request = new RestRequest("https://restcountries.com/v2/name/" + Name + "?fields=name,nativeName,capital,region,population,area,numericCode,flags,currencies,languages");
             var response = await client.GetAsync<List<CountryModel>>(request);
 
             return response[0];

@@ -45,7 +45,9 @@
                 </Grid.ColumnDefinitions>
                 <Rectangle Fill="#F2F2F2"/>
                 <Rectangle Grid.Column="1" Fill="#F2F2F2"/>
-                <StackPanel>
+                <ScrollViewer>
+                    <Grid>
+                    <StackPanel>
                     <Label Content="{Binding name}" FontWeight="Bold" FontSize="25"/>
                     <Label Content="{Binding nativeName}" FontSize="18"/>
                     <Separator/>
@@ -66,7 +68,20 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </StackPanel>
+                    <Label Content="Languages:" FontSize="18"/>
+                    <ListView ItemsSource="{Binding languages}" FontSize="15" Background="#F2F2F2">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Content="{Binding name}" ContentStringFormat="Name: {0}"/>
+                                    <Label Content="{Binding nativeName}" ContentStringFormat="Native name: {0}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    </StackPanel>
+                </Grid>
+                </ScrollViewer>
                 <Border Grid.Column="1" BorderThickness="1" BorderBrush="Gray">
                     <StackPanel >
                         <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WannaGo}"/>

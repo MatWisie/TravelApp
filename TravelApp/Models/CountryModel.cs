@@ -13,6 +13,7 @@ namespace TravelApp.Models
         public string NumericCode { get; set; }
         public FlagsModel Flags { get; set; } 
         public List<CurrencyModel> Currencies { get; set; }
+        public List<LanguageModel> Languages { get; set; }
 
     }
 }

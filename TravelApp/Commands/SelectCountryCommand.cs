@@ -37,6 +37,7 @@ namespace TravelApp.Commands
                 _countryViewModel.area = tmp.Area;
                 _countryViewModel.flag = tmp.Flags.png;
                 _countryViewModel.currencies = tmp.Currencies;
+                _countryViewModel.languages = tmp.Languages;
                 _countryViewModel.dateGridState = false;
                 _navigationStore.CurrentViewModel = _countryViewModel;
             }

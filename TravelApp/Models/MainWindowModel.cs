@@ -28,7 +28,6 @@ namespace TravelApp.Models
                 _Countries = value;
             }
         }
-
         public MainWindowModel()
         {
             _Date = DateTime.Now.ToString("dd.MM.yyyy");

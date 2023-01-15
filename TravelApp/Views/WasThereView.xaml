@@ -35,11 +35,20 @@
                                 <Button Content="X" HorizontalAlignment="Right" Grid.Column="1" FontWeight="Bold" Foreground="Red" Cursor="Hand" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}, Path=DataContext.DeleteSelectedWasThere}" CommandParameter="{Binding Index}"/>
                             </Grid>
                             <Expander Header="Show more">
-                                <WrapPanel>
-                                    <Label Content="{Binding NativeName}" ContentStringFormat="NativeName: {0}"/>
-                                    <Label Content="{Binding Capital}" ContentStringFormat="Capital: {0}"/>
-                                    <Label Content="{Binding Region}" ContentStringFormat="Region: {0}"/>
-                                </WrapPanel>
+                                <StackPanel>
+                                    <WrapPanel>
+                                        <Label Content="{Binding NativeName}" ContentStringFormat="NativeName: {0}"/>
+                                        <Label Content="{Binding Capital}" ContentStringFormat="Capital: {0}"/>
+                                        <Label Content="{Binding Region}" ContentStringFormat="Region: {0}"/>
+                                    </WrapPanel>
+                                    <TextBox Text="{Binding Note, Mode=TwoWay}" Height="100" Width="300" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" FontSize="14">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="LostFocus">
+                                                <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}, Path=DataContext.SaveWasThere}"/>
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </TextBox>
+                                </StackPanel>
                             </Expander>
                         </StackPanel>
                     </DataTemplate>
