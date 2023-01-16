@@ -14,6 +14,7 @@ namespace TravelApp.Models
         public FlagsModel Flags { get; set; } 
         public List<CurrencyModel> Currencies { get; set; }
         public List<LanguageModel> Languages { get; set; }
+        public string SubRegion { get; set; }
 
     }
 }

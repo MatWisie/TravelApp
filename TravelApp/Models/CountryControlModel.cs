@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TravelApp.Interfaces;
 
 namespace TravelApp.Models
 {
-    public class CountryControlModel
+    public class CountryControlModel : ISaveAble
     {
         private string _Name;
         public string Name
@@ -127,6 +128,15 @@ namespace TravelApp.Models
             set { _Languages = value; }
         }
 
+        private string _SubRegion;
+
+        public string SubRegion
+        {
+            get { return _SubRegion; }
+            set { _SubRegion = value; }
+        }
+
+
         private int? _Index;
         public int? Index 
         {
@@ -185,7 +195,7 @@ namespace TravelApp.Models
         public async Task<CountryModel> LoadCountry()
         {
             var client = new RestClient();
-            var request = new RestRequest("https://restcountries.com/v2/name/" + Name + "?fields=name,nativeName,capital,region,population,area,numericCode,flags,currencies,languages");
+            var request = new RestRequest("https://restcountries.com/v2/name/" + Name + "?fields=name,nativeName,capital,region,population,area,numericCode,flags,currencies,languages,subregion");
             var response = await client.GetAsync<List<CountryModel>>(request);
 
             return response[0];

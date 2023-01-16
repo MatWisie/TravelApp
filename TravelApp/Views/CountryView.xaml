@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              xmlns:emums="clr-namespace:TravelApp.Enums"
              xmlns:local="clr-namespace:TravelApp.Views" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
@@ -15,8 +16,8 @@
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
@@ -26,12 +27,9 @@
                 <Image Source="{Binding flag}" Margin="10"/>
                 <Label Grid.Row="1" Content="{Binding Path=name}" ContentStringFormat="Flag of {0}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
             </Grid>
-            <Rectangle Grid.Row="1" Margin="10,10,10,10" RadiusX="30" RadiusY="30">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="https://img.freepik.com/free-vector/world-map-color_1308-92309.jpg?w=2000"/>
-                </Rectangle.Fill>
-            </Rectangle>
-
+            <Border Grid.Row="1" CornerRadius="8" BorderThickness="1" BorderBrush="Black" Margin="10,10,10,10">
+                <Image gif:ImageBehavior.AnimatedSource="{Binding mapImage}" gif:ImageBehavior.RepeatBehavior="3x" Stretch="Fill"/>
+            </Border>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -47,45 +45,53 @@
                 <Rectangle Grid.Column="1" Fill="#F2F2F2"/>
                 <ScrollViewer>
                     <Grid>
-                    <StackPanel>
-                    <Label Content="{Binding name}" FontWeight="Bold" FontSize="25"/>
-                    <Label Content="{Binding nativeName}" FontSize="18"/>
-                    <Separator/>
-                    <Label Content="{Binding capital}" ContentStringFormat="Capital: {0}" FontSize="18"/>
-                    <Label Content="{Binding region}" ContentStringFormat="Region: {0}" FontSize="18"/>
-                    <Label Content="{Binding population}" ContentStringFormat="Population: {0}" FontSize="18"/>
-                    <Label Content="{Binding area}" ContentStringFormat="Area: {0}" FontSize="18"/>
-                    <Label Content="{Binding numericCode}" ContentStringFormat="Numeric code: {0}" FontSize="18"/>
-                    <Label Content="Currencies:" FontSize="18"/>
-                    <ListView ItemsSource="{Binding currencies}" FontSize="15" Background="#F2F2F2">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <Label Content="{Binding code}" ContentStringFormat="Code: {0}"/>
-                                    <Label Content="{Binding name}" ContentStringFormat="Name: {0}" />
-                                    <Label Content="{Binding symbol}" ContentStringFormat="Symbol: {0}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <Label Content="Languages:" FontSize="18"/>
-                    <ListView ItemsSource="{Binding languages}" FontSize="15" Background="#F2F2F2">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <Label Content="{Binding name}" ContentStringFormat="Name: {0}"/>
-                                    <Label Content="{Binding nativeName}" ContentStringFormat="Native name: {0}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    </StackPanel>
-                </Grid>
+                        <StackPanel>
+                            <Label Content="{Binding name}" FontWeight="Bold" FontSize="25"/>
+                            <Label Content="{Binding nativeName}" FontSize="18"/>
+                            <Separator/>
+                            <Label Content="{Binding capital}" ContentStringFormat="Capital: {0}" FontSize="18"/>
+                            <Label Content="{Binding region}" ContentStringFormat="Region: {0}" FontSize="18"/>
+                            <Label Content="{Binding population}" ContentStringFormat="Population: {0}" FontSize="18"/>
+                            <Label Content="{Binding area}" ContentStringFormat="Area: {0}" FontSize="18"/>
+                            <Label Content="{Binding numericCode}" ContentStringFormat="Numeric code: {0}" FontSize="18"/>
+                            <Label Content="Currencies:" FontSize="18"/>
+                            <ListView ItemsSource="{Binding currencies}" FontSize="15" Background="#F2F2F2">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <Label Content="{Binding code}" ContentStringFormat="Code: {0}"/>
+                                            <Label Content="{Binding name}" ContentStringFormat="Name: {0}" />
+                                            <Label Content="{Binding symbol}" ContentStringFormat="Symbol: {0}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Label Content="Languages:" FontSize="18"/>
+                            <ListView ItemsSource="{Binding languages}" FontSize="15" Background="#F2F2F2">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <Label Content="{Binding name}" ContentStringFormat="Name: {0}"/>
+                                            <Label Content="{Binding nativeName}" ContentStringFormat="Native name: {0}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Grid>
                 </ScrollViewer>
                 <Border Grid.Column="1" BorderThickness="1" BorderBrush="Gray">
                     <StackPanel >
-                        <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WannaGo}"/>
-                        <Button Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WasThere}"/>
+                        <Button Background="Purple" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WannaGo}">
+                            <Button.Content>
+                                <Image Source="../Images/WannaGoPlus.png"/>
+                            </Button.Content>
+                        </Button>
+                        <Button Background="Blue" Style="{StaticResource RoundedButton}" Margin="2" Width="50" Height="50" MaxWidth="50" MaxHeight="50" Command="{Binding ChangeMode}" CommandParameter="{x:Static emums:AddModeEnum.WasThere}">
+                            <Button.Content>
+                                <Image Source="../Images/WasTherePlus.png"/>
+                            </Button.Content>
+                        </Button>
                     </StackPanel>
                 </Border>
             </Grid>
@@ -102,7 +108,11 @@
                             <DatePicker SelectedDate="{Binding toDate, Mode=TwoWay}"/>
                         </Viewbox>
                     </StackPanel>
-                    <Button Background="Green" Style="{StaticResource RoundedButton}" Margin="5" Width="35" Height="35" MaxWidth="40" MaxHeight="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding SaveCountry}"/>
+                    <Button Background="Gray" Style="{StaticResource RoundedButton}" Margin="5" Width="40" Height="40" MaxWidth="40" MaxHeight="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding SaveCountry}">
+                        <Button.Content>
+                            <Label Content="OK" FontWeight="Bold" Foreground="White"/>
+                        </Button.Content>
+                    </Button>
                 </Grid>
             </Border>
         </Grid>

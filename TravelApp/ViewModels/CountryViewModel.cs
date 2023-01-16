@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Input;
 using TravelApp.Commands;
 using TravelApp.Enums;
@@ -132,8 +133,26 @@ namespace TravelApp.ViewModels
 
         public List<LanguageModel> languages
         {
-            get { return _countryControlModel.Languages; }
-            set { _countryControlModel.Languages = value; }
+            get 
+            {
+                return _countryControlModel.Languages; 
+            }
+            set 
+            { 
+                _countryControlModel.Languages = value;
+                OnPropertyChanged(nameof(languages));
+            }
+        }
+        public string subRegion
+        {
+            get
+            {
+                return _countryControlModel.SubRegion;
+            }
+            set
+            {
+                _countryControlModel.SubRegion = value;
+            }
         }
 
         private bool _dateGridState = false;
@@ -209,6 +228,26 @@ namespace TravelApp.ViewModels
                 OnPropertyChanged(nameof(modeString)); 
             }
         }
+
+        private string _mapImage;
+
+        public string mapImage 
+        {
+            get 
+            { 
+                return _mapImage; 
+            }
+            set 
+            {
+                string path = value.Remove(0, 1);
+                if (System.IO.File.Exists(Path.Combine(Directory.GetCurrentDirectory(), path)))
+                    _mapImage = value;
+                else
+                    _mapImage = "../Images/RegionNotFound.gif";
+                OnPropertyChanged(nameof(mapImage));
+            }
+        }
+
 
         public ICommand ShowCountry { get; }
         public ICommand SaveWantToTravel { get; }

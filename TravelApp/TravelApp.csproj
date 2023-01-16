@@ -83,6 +83,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -101,6 +104,7 @@
     <Compile Include="Commands\ShowCountryCommand.cs" />
     <Compile Include="Enums\AddModeEnum.cs" />
     <Compile Include="Interfaces\IListOfModels.cs" />
+    <Compile Include="Interfaces\ISaveAble.cs" />
     <Compile Include="Models\CountryControlModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\CountryNameModel.cs" />
@@ -174,6 +178,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Africa.gif" />
+    <Resource Include="Images\America.gif" />
+    <Resource Include="Images\Asia.gif" />
+    <Resource Include="Images\Europe.gif" />
+    <Resource Include="Images\Oceania.gif" />
+    <Resource Include="Images\SAmerica.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WannaGoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WasThereImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WasTherePlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WannaGoPlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RegionNotFound.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

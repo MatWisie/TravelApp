@@ -38,7 +38,20 @@ namespace TravelApp.Commands
                 _countryViewModel.flag = tmp.Flags.png;
                 _countryViewModel.currencies = tmp.Currencies;
                 _countryViewModel.languages = tmp.Languages;
+                _countryViewModel.subRegion = tmp.SubRegion;
                 _countryViewModel.dateGridState = false;
+                if (tmp.SubRegion == "South America")
+                {
+                    _countryViewModel.mapImage = "/Images/SAmerica.gif";
+                }
+                else if (tmp.SubRegion == "Northern America")
+                {
+                    _countryViewModel.mapImage = "/Images/America.gif";
+                }
+                else
+                {
+                    _countryViewModel.mapImage = "/Images/" + tmp.Region + ".gif";
+                }
                 _navigationStore.CurrentViewModel = _countryViewModel;
             }
             catch(NullReferenceException)
